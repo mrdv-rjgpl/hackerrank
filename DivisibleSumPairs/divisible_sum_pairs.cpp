@@ -37,6 +37,11 @@ int DivisibleSumPairs(int n, int k, vector<int> input)
 		num_div_sum_pairs += (remainder_counts[i] * remainder_counts[k - i]);
 	}
 
+	if(k % 2 == 0)
+	{
+		num_div_sum_pairs += (remainder_counts[k / 2] * (remainder_counts[k / 2] - 1)) / 2;
+	}
+
 	return num_div_sum_pairs;
 }
 
