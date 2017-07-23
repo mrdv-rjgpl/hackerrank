@@ -9,7 +9,7 @@ using namespace std;
  * \details Since the number of types of birds is just five, and the possible counts can go up to 10^5,
  * it is more advantageous to first find the count, and then find the index of the max count from amongst them.
  *
- * \param[in] input The bird counts.
+ * \param[in] input The bird types, varying from 1 to 5.
  *
  * \return bird_index The most populous bird's type index.
  *
