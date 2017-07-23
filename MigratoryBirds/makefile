@@ -14,7 +14,7 @@ all: $(main_exe_file)
 	@echo "Make successful."
 
 # List of all flags for compilation and linking.
-# Major flags include -g for debugging, -O0 to prevent compiler optimization, -Wall -Werror to make sure no warnings are missed, and SPARC related flags.
+# Major flags include -g for debugging, -std=c++11 for compatibility with hackerrank, and -lm for when we need math.
 cdflags = -g
 cpflags = -std=c++11
 clflags = -lm
