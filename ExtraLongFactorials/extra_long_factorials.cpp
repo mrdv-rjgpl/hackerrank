@@ -15,6 +15,8 @@ class LargeInteger
 	public:
 		LargeInteger(int n);
 		string str();
+
+		LargeInteger operator+=(int n);
 };
 
 LargeInteger::LargeInteger(int n)
@@ -40,15 +42,42 @@ string LargeInteger::str()
 	return s.str();
 }
 
+LargeInteger LargeInteger::operator+=(int n)
+{
+	int i;
+	int carry = n;
+	int sum = 0;
+
+	for(i = 0; i < this->n.size(); ++i)
+	{
+		sum = this->n[i] + carry;
+		carry = sum / 10;
+		this->n[i] = sum % 10;
+	}
+
+	while(carry > 0)
+	{
+		this->n.push_back(carry % 10);
+		carry /= 10;
+	}
+
+	return *this;
+}
+
 int main()
 {
+	int i;
 	int n;
 
 	cin >> n;
 
-	LargeInteger l(n);
+	LargeInteger l(0);
 
-	cout << l.str() << endl;
+	for(i = 0; i < n; ++i)
+	{
+		l += 1;
+		cout << l.str() << endl;
+	}
 
 	return 0;
 }
