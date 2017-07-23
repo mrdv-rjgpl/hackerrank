@@ -243,7 +243,7 @@ int main()
 
 	cin >> r >> c >> n;
 
-	// The system state repeats itself every 4 steps.
+	// The system state repeats itself every 4 steps, after the first 4, to establish the pattern.
 	if(n >= 4)
 	{
 		n = (n % 4) + 4;
