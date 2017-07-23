@@ -7,6 +7,18 @@
 
 using namespace std;
 
+/**
+ *
+ * \brief Large integer manipulation class.
+ *
+ * The class stores the large integer in the base-10 form, with the least significant digit at the
+ * lowest index of the vector.
+ *
+ * Multiply and add regular integers to a large integer with this class.
+ *
+ * \author Mardava Gubbi <mrdv.rjgpl@gmail.com>
+ *
+ */
 class LargeInteger
 {
 	private:
@@ -20,6 +32,15 @@ class LargeInteger
 		LargeInteger operator*=(int n);
 };
 
+/**
+ *
+ * \brief Construct a LargeInteger object with the value of the input integer.
+ *
+ * \param[in] n The input integer.
+ *
+ * \author Mardava Gubbi <mrdv.rjgpl@gmail.com>
+ *
+ */
 LargeInteger::LargeInteger(int n)
 {
 	while(n > 0)
@@ -30,6 +51,15 @@ LargeInteger::LargeInteger(int n)
 	}
 }
 
+/**
+ *
+ * \brief Return the string value of the object.
+ *
+ * \return The string value of the integer.
+ *
+ * \author Mardava Gubbi <mrdv.rjgpl@gmail.com>
+ *
+ */
 string LargeInteger::str()
 {
 	int i;
@@ -43,6 +73,15 @@ string LargeInteger::str()
 	return s.str();
 }
 
+/**
+ *
+ * \brief Overload the += operator with an integer variable on the RHS.
+ *
+ * \param[in] n The input integer.
+ *
+ * \author Mardava Gubbi <mrdv.rjgpl@gmail.com>
+ *
+ */
 LargeInteger LargeInteger::operator+=(int n)
 {
 	int i;
@@ -65,6 +104,15 @@ LargeInteger LargeInteger::operator+=(int n)
 	return *this;
 }
 
+/**
+ *
+ * \brief Overload the *= operator with an integer variable on the RHS.
+ *
+ * \param[in] n The input integer.
+ *
+ * \author Mardava Gubbi <mrdv.rjgpl@gmail.com>
+ *
+ */
 LargeInteger LargeInteger::operator*=(int n)
 {
 	int i;
