@@ -1,3 +1,18 @@
+/**
+ *
+ * \brief Magic square formation challenge.
+ *
+ * https://www.hackerrank.com/challenges/magic-square-forming
+ *
+ * \details According to Wikipedia, only one unique magic square exists of side 3, formed by going right and up,
+ * right and up, and left, in sequence, thrice. 8 trivially distinct matrices can be generated from a given matrix
+ * by transposing and flipping the original. This program takes an input matrix, runs it through these transformations,
+ * and determines the distance metric from the magic square for each. The minimum of these distance measurements is
+ * taken as the final cost.
+ *
+ * \author Mardava Gubbi <mrdv.rjgpl@gmail.com>
+ *
+ */
 #include <bits/stdc++.h>
 
 #define MAGIC_SQUARE_NUM_ROWS 3
@@ -5,6 +20,17 @@
 
 using namespace std;
 
+/**
+ *
+ * \brief Get the cost of changing the numbers to form a magic square.
+ *
+ * \details The sum of absolute differences of each number from the required magic square is computed.
+ *
+ * \param[in] input The input matrix.
+ *
+ * \author Mardava Gubbi <mrdv.rjgpl@gmail.com>
+ *
+ */
 int GetMagicSquareFormationCost(int input[MAGIC_SQUARE_NUM_ROWS][MAGIC_SQUARE_NUM_ROWS])
 {
 	int i;
@@ -19,6 +45,7 @@ int GetMagicSquareFormationCost(int input[MAGIC_SQUARE_NUM_ROWS][MAGIC_SQUARE_NU
 
 		if(i % MAGIC_SQUARE_NUM_ROWS == 0)
 		{
+			// Go left.
 			--col;
 
 			if(col < 0)
@@ -28,6 +55,7 @@ int GetMagicSquareFormationCost(int input[MAGIC_SQUARE_NUM_ROWS][MAGIC_SQUARE_NU
 		}
 		else
 		{
+			// Go right and up.
 			--row;
 
 			if(row < 0)
@@ -42,6 +70,17 @@ int GetMagicSquareFormationCost(int input[MAGIC_SQUARE_NUM_ROWS][MAGIC_SQUARE_NU
 	return sum;
 }
 
+/**
+ *
+ * \brief Flip the matrix about the middle row.
+ *
+ * \details Perform an in-situ flip of the given matrix.
+ *
+ * \param[in] input The input matrix.
+ *
+ * \author Mardava Gubbi <mrdv.rjgpl@gmail.com>
+ *
+ */
 void FlipMatrix(int input[MAGIC_SQUARE_NUM_ROWS][MAGIC_SQUARE_NUM_ROWS])
 {
 	int i;
@@ -55,6 +94,15 @@ void FlipMatrix(int input[MAGIC_SQUARE_NUM_ROWS][MAGIC_SQUARE_NUM_ROWS])
 	}
 }
 
+/**
+ *
+ * \brief Print the matrix.
+ *
+ * \param[in] input The input matrix.
+ *
+ * \author Mardava Gubbi <mrdv.rjgpl@gmail.com>
+ *
+ */
 void PrintMatrix(int input[MAGIC_SQUARE_NUM_ROWS][MAGIC_SQUARE_NUM_ROWS])
 {
 	int i;
@@ -71,6 +119,15 @@ void PrintMatrix(int input[MAGIC_SQUARE_NUM_ROWS][MAGIC_SQUARE_NUM_ROWS])
 	}
 }
 
+/**
+ *
+ * \brief Transpose the matrix in-situ.
+ *
+ * \param[in] input The input matrix.
+ *
+ * \author Mardava Gubbi <mrdv.rjgpl@gmail.com>
+ *
+ */
 void TransposeMatrix(int input[MAGIC_SQUARE_NUM_ROWS][MAGIC_SQUARE_NUM_ROWS])
 {
 	int i;
